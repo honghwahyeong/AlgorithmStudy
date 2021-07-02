@@ -3,7 +3,6 @@ def solution(s):
     answer = []
     s = s[1:-2]
     s = s.split('},')
-    length = len(s)
     for i in s:
         i = i.split('{')
         j = list(map(int, i[1].split(',')))
