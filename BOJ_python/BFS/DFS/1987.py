@@ -2,6 +2,11 @@ import sys
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 visited = [0]*26
+R, C = map(int, input().split())
+
+board = [list(map(lambda x: ord(x)-65, input().rstrip())) for _ in range(R)]
+count = 1
+visited[board[0][0]] = 1
 
 
 def dfs(x, y, cnt):
@@ -17,10 +22,5 @@ def dfs(x, y, cnt):
                 visited[board[ny][nx]] = 0
 
 
-R, C = map(int, input().split())
-
-board = [list(map(lambda x: ord(x)-65, input().rstrip())) for _ in range(R)]
-count = 1
-visited[board[0][0]] = 1
 dfs(0, 0, count)
 print(count)
