@@ -4,15 +4,8 @@ dx = [-1, 1, 0, 0, 0, 0]
 dy = [0, 0, -1, 1, 0, 0]
 dz = [0, 0, 0, 0, -1, 1]
 
-M, N, H = map(int, input().split())
-board = [[list(map(int, input().split())) for _ in range(N)] for _ in range(H)]
-max_day = 0
 
-
-def bfs(x, y, z):
-    queue = deque()
-    queue.append((x, y, z))
-
+def bfs():
     while queue:
         a, b, c = queue.popleft()
         for i in range(6):
@@ -25,11 +18,17 @@ def bfs(x, y, z):
                     board[nz][ny][nx] = board[c][b][a] + 1
 
 
+M, N, H = map(int, input().split())
+board = [[list(map(int, input().split())) for _ in range(N)] for _ in range(H)]
+max_day = 0
+queue = deque()
+
 for i in range(H):
     for j in range(N):
         for k in range(M):
             if board[i][j][k] == 1:
-                bfs(k, j, i)
+                queue.append((k, j, i))
+bfs()
 flag = 0
 for i in range(H):
     for j in range(N):
