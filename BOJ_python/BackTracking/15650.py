@@ -1,12 +1,17 @@
-from itertools import combinations
-
 N, M = map(int, input().split())
-llist = []
-for i in range(N):
-    llist.append(i+1)
-board = list(combinations(llist, M))
-board.sort()
-for i in board:
-    for j in range(len(i)):
-        print(i[j], end=' ')
-    print()
+
+board = []
+
+
+def dfs(cnt):
+    if len(board) == M:
+        print(' '.join(map(str, board)))
+        return
+    for i in range(cnt, N+1):
+        if i not in board:
+            board.append(i)
+            dfs(i+1)
+            board.pop()
+
+
+dfs(1)
