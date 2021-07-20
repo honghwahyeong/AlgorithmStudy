@@ -1,7 +1,5 @@
 N, M = map(int, input().split())
-
 board = []
-
 
 def dfs(cnt):
     if len(board) == M:
@@ -11,6 +9,5 @@ def dfs(cnt):
         board.append(i)
         dfs(i)
         board.pop()
-
 
 dfs(1)

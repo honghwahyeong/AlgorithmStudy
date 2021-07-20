@@ -4,7 +4,6 @@ input = sys.stdin.readline
 L, C = map(int, input().split())
 board = list(map(str, input().split()))
 board.sort()
-print(board)
 isvowel = [0]*C
 isnotvowel = [0]*C
 sstring = ''

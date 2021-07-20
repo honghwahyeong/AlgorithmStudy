@@ -8,8 +8,6 @@ def dfs(cnt, depth):
     for i in range(cnt, len(board)):
         lucky[depth] = board[i]
         dfs(i+1, depth+1)
-
-
 lucky = [0 for _ in range(13)]
 while 1:
     board = list(map(int, input().split()))
@@ -18,3 +16,4 @@ while 1:
     board = board[1:]
 
     dfs(0, 0)
+    print()
