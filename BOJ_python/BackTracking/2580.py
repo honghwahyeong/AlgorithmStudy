@@ -20,7 +20,7 @@ def square(x, y, val):
     ny = y//3 * 3
     for i in range(3):
         for j in range(3):
-            if val == board[nx+i][ny+i]:
+            if val == board[nx+i][ny+j]:
                 return False
     return True
 
