@@ -1,3 +1,4 @@
+# heapq 사용해도 똑같이 풀 수 있다.
 from queue import PriorityQueue
 
 n = int(input())
