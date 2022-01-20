@@ -1,6 +1,6 @@
 import sys
 input = sys.stdin.readline
-min_line = int(1e9)
+min_line = 4
 
 
 def check():
@@ -32,9 +32,9 @@ def sol(cnt, num):
 
 
 n, m, h = map(int, input().split())
-board = [[0]*(n+1) for _ in range(h+1)]
+board = [[0 for _ in range(n+1)] for _ in range(h+1)]
 candidate = []
-for i in range(m):
+for _ in range(m):
     a, b = map(int, input().split())
     board[a][b] = 1
 for i in range(1, h+1):
@@ -42,6 +42,8 @@ for i in range(1, h+1):
         if board[i][j-1] == 0 and board[i][j] == 0 and board[i][j+1] == 0:
             candidate.append((i, j))
 
+for i in board:
+    print(i)
+
 sol(0, -1)
-print(min_line)
 print(min_line if min_line < 4 else -1)
