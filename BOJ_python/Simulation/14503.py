@@ -1,6 +1,6 @@
 from collections import deque
 
-dx = [-1, 0, 1, 0]
+dx = [-1, 0, 1, 0]  # 북 동 남 서
 dy = [0, 1, 0, -1]
 
 n, m = map(int, input().split())
