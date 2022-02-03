@@ -4,6 +4,9 @@ input = sys.stdin.readline
 
 board = [list(map(int, input().rstrip())) for _ in range(9)]
 num_arr = [[0]*9 for _ in range(27)]
+num_arr_c = [[0] * 9 for _ in range(9)]
+num_arr_r = [[0] * 9 for _ in range(9)]
+num_arr_s = [[0] * 9 for _ in range(9)]
 blank = []
 is_done = False
 
