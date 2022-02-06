@@ -1,13 +1,11 @@
 t = int(input())
-for _ in range(2):
+for _ in range(t):
     n = int(input())
-    answer = 0
-
+    board = [0] * (n+1)
     for i in range(1, n+1):
-        count = 0
-        for j in range(1, i+1):
-            if i % j == 0:
-                count += 1
-        if count % 2 == 1:
-            answer += 1
-    print(answer)
+        for j in range(i, n+1, i):
+            if board[j] == 0:
+                board[j] = 1
+            else:
+                board[j] = 0
+    print(sum(board))
