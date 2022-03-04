@@ -32,7 +32,7 @@ for piece in land:
                 q.append((nx, ny))
                 is_visited[nx][ny] = True
                 count_hour[nx][ny] = count_hour[tmp_x][tmp_y] + 1
-                tmp_result = max(tmp_result, count_hour[nx][ny])
+                tmp_result = count_hour[nx][ny]
 
     result = max(tmp_result, result)
 print(result)
