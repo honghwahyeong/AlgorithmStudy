@@ -21,6 +21,29 @@ def bfs(x, y):
                 island[nx][ny] = island_count
 
 
+def bfs2(a):
+    global result
+    dist = [[-1] * n for _ in range(n)]
+    q = deque()
+    for i in range(n):
+        for j in range(n):
+            if island[i][j] == a:
+                q.append((i, j))
+                dist[i][j] = 0
+    while q:
+        x, y = q.popleft()
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+            if nx < 0 or nx >= n or ny < 0 or ny >= n:
+                continue
+            if island[nx][ny] > 0 and island[nx][ny] != a:
+                result = min(result, dist[x][y])
+            if island[nx][ny] == 0 and dist[nx][ny] == -1:
+                dist[nx][ny] = dist[x][y] + 1
+                q.append((nx, ny))
+
+
 n = int(input())
 board = [list(map(int, input().split())) for _ in range(n)]
 island = [[0]*n for _ in range(n)]
@@ -31,18 +54,10 @@ for i in range(n):
             island_count += 1
             bfs(i, j)
 
-island_edge = [[] for _ in range(island_count)]
-print(island_edge)
 
-for i in range(n):
-    for j in range(n):
-        if island[i][j] != 0:
-            for k in range(4):
-                ni = i + dx[k]
-                nj = j + dy[k]
-                if 0 <= ni < n and 0 <= nj < n and island[ni][nj] == 0:
-                    island_edge[island[i][j]-1].append((i, j))
-                    break
+result = int(1e9)
 
-for i in island_edge:
-    print(i)
+for i in range(1, island_count+1):
+    bfs2(i)
+
+print(result)
